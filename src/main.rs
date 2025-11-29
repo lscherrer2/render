@@ -1,8 +1,13 @@
 #![allow(unused)]
 
-pub mod camera;
-pub mod vec3;
-pub mod shape;
+mod camera;
+mod vec3;
+mod shape;
+mod scene;
+mod model;
+mod transformation;
+mod config;
+mod mat;
 
 fn main() {
 

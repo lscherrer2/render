@@ -1,10 +1,10 @@
-pub type Dtype = f32;
+pub use crate::config::Dtype;
 
 #[derive(Clone, Copy)]
 pub struct Vec3 { 
-    x: Dtype, 
-    y: Dtype, 
-    z: Dtype,
+    pub x: Dtype, 
+    pub y: Dtype, 
+    pub z: Dtype,
 }
 
 impl Vec3 {
