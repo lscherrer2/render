@@ -16,13 +16,13 @@ Matrix<R, C> {
         println!("]");
     }
     pub fn is_heap(&self) -> bool {
-        match self.cols {
+        match &self.cols {
             Data::HEAP(..) => true,
             Data::STACK(..) => false,
         }
     }
     pub fn is_stack(&self) -> bool {
-        match self.cols {
+        match &self.cols {
             Data::HEAP(..) => false,
             Data::STACK(..) => true,
         }

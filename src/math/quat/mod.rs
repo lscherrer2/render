@@ -2,10 +2,8 @@
 mod test;
 
 mod def;
-pub use def::Matrix;
-
-mod data;
 mod init;
 mod ops;
-mod util;
+mod vec3;
 
+pub use def::Quat;

@@ -1,4 +1,6 @@
-use crate::math::vec3::Vec3;
+use super::Vec3;
+use super::super::Quat;
+
 
 impl Vec3 {
     pub fn cross(a: Self, b: Self) -> Self {
@@ -63,8 +65,8 @@ impl From<Vec3> for [f32; 3] {
         [value.x, value.y, value.z] 
     }
 }
-impl From<Vec3> for [f32; 4] {
-    fn from(value: Vec3) -> Self {
-        [value.x, value.y, value.z, 0.0]
+impl From<[f32; 3]> for Vec3 {
+    fn from(value: [f32; 3]) -> Self {
+        Self::new(value[0], value[1], value[2])      
     }
 }
