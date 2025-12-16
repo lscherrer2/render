@@ -49,21 +49,25 @@ fn test_zeros_and_index_mut() {
 }
 
 #[test]
-fn test_stack_vs_heap_storage_flags() {
-	let a: Matrix<2, 2> = Matrix::new_stack([[1.0, 2.0], [3.0, 4.0]]);
-	assert!(a.is_stack());
-	assert!(!a.is_heap());
-	match &a.cols {
+fn test_automagic_stack_vs_heap_allocation() {
+	// Small matrices should default to stack allocation
+	let small: Matrix<2, 2> = Matrix::new([[1.0, 2.0], [3.0, 4.0]]);
+	assert!(small.is_stack(), "2x2 should be stack allocated");
+	assert!(!small.is_heap());
+	match &small.cols {
 		Data::STACK(..) => {}
-		Data::HEAP(..) => panic!("expected STACK storage"),
+		Data::HEAP(..) => panic!("expected STACK storage for 2x2"),
 	}
 
-	let b: Matrix<2, 2> = Matrix::new_heap([[1.0, 2.0], [3.0, 4.0]]);
-	assert!(b.is_heap());
-	assert!(!b.is_stack());
-	match &b.cols {
+	// Large matrices should default to heap allocation
+	// (Assume 32x32 is large enough to trigger heap; adjust if needed)
+	let big_data = [[1.0f32; 32]; 32];
+	let large: Matrix<32, 32> = Matrix::new(big_data);
+	assert!(large.is_heap(), "32x32 should be heap allocated");
+	assert!(!large.is_stack());
+	match &large.cols {
 		Data::HEAP(..) => {}
-		Data::STACK(..) => panic!("expected HEAP storage"),
+		Data::STACK(..) => panic!("expected HEAP storage for 32x32"),
 	}
 }
 
