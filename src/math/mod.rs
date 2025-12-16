@@ -1,7 +1,7 @@
-mod vec3;
 mod mat;
 mod quat;
+mod vec3;
 
-pub use mat::{Matrix};
-pub use vec3::{Vec3};
-pub use quat::{Quat};
+pub use mat::Matrix;
+pub use quat::Quat;
+pub use vec3::Vec3;

@@ -1,5 +1,5 @@
-use super::Quat;
 use super::super::Vec3;
+use super::Quat;
 
 fn assert_f32_near(actual: f32, expected: f32, eps: f32) {
     assert!(

@@ -1,15 +1,17 @@
 use super::{Matrix, data::Data};
 use std::mem::size_of;
 
-impl<const R: usize, const C: usize> 
-Matrix<R, C> {
-    pub fn new(cols: [[f32; R]; C]) -> Self { 
-        Matrix{cols: 
-            if R * C * size_of::<f32>() <= 256 { Data::STACK(cols) } 
-            else { Data::HEAP(Box::new(cols)) }
-        } 
+impl<const R: usize, const C: usize> Matrix<R, C> {
+    pub fn new(cols: [[f32; R]; C]) -> Self {
+        Matrix {
+            cols: if R * C * size_of::<f32>() <= 256 {
+                Data::STACK(cols)
+            } else {
+                Data::HEAP(Box::new(cols))
+            },
+        }
     }
-    pub fn zeros() -> Self { 
+    pub fn zeros() -> Self {
         Self::new([[0.0; R]; C])
     }
     pub fn from_cols(cols: [[f32; R]; C]) -> Self {

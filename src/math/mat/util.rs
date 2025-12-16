@@ -1,17 +1,23 @@
 use super::{Matrix, data::Data};
-impl<const R: usize, const C: usize> 
-Matrix<R, C> {
+impl<const R: usize, const C: usize> Matrix<R, C> {
     pub fn print(&self) -> () {
         print!("[");
         (0..R).for_each(|r| {
-            if r > 0 {print!(" ");};
+            if r > 0 {
+                print!(" ");
+            };
             print!("[");
             (0..C).for_each(|c| {
                 print!("{:5.2}", self[(r, c)]);
-                if (c+1) != C {print!(",");};
+                if (c + 1) != C {
+                    print!(",");
+                };
             });
-            if (r+1) == R {print!("]");}
-            else {println!("]");};
+            if (r + 1) == R {
+                print!("]");
+            } else {
+                println!("]");
+            };
         });
         println!("]");
     }

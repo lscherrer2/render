@@ -1,8 +1,8 @@
 #[cfg(test)]
 mod tests;
 
-mod init;
 mod def;
+mod init;
 mod ops;
 
 pub use def::Vec3;

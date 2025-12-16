@@ -1,8 +1,6 @@
 #![allow(unused)]
 
-mod math;
 mod engine;
+mod math;
 
-fn main() {
-
-}
+fn main() {}

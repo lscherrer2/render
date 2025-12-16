@@ -1,5 +1,5 @@
-use super::Quat;
 use super::super::Vec3;
+use super::Quat;
 
 impl Quat {
     pub fn conjugate(self) -> Self {
@@ -9,10 +9,7 @@ impl Quat {
         self.conjugate() / Quat::dot(self, self)
     }
     pub fn dot(lhs: Self, rhs: Self) -> f32 {
-        lhs.x * rhs.x + 
-        lhs.y * rhs.y + 
-        lhs.z * rhs.z + 
-        lhs.w * rhs.w
+        lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w
     }
     pub fn norm(self) -> f32 {
         f32::sqrt(Quat::dot(self, self))
