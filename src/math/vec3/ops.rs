@@ -55,6 +55,12 @@ impl std::ops::Div<f32> for Vec3 {
         Self::new(self.x / other, self.y / other, self.z / other)
     }
 }
+impl std::ops::Neg for Vec3 {
+    type Output = Self;
+    fn neg(self) -> Self::Output {
+        Self::new(-self.x, -self.y, -self.z)
+    }
+}
 impl From<Vec3> for [f32; 3] {
     fn from(value: Vec3) -> Self {
         [value.x, value.y, value.z]

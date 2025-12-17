@@ -23,3 +23,11 @@ impl<const R: usize, const C: usize> Matrix<R, C> {
         res
     }
 }
+
+impl<const D: usize> Matrix<D, D> {
+    pub fn identity() -> Self {
+        let mut res = Self::zeros();
+        (0..D).for_each(|idx| res[(idx, idx)] = 1.0);
+        res
+    }
+}

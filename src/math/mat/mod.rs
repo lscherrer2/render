@@ -6,5 +6,6 @@ pub use def::Matrix;
 
 mod data;
 mod init;
+mod iter;
 mod ops;
 mod util;

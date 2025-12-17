@@ -8,3 +8,8 @@ impl Quat {
         Self::new(0.0, 0.0, 0.0, 1.0)
     }
 }
+impl Default for Quat {
+    fn default() -> Self {
+        Self::identity()
+    }
+}
